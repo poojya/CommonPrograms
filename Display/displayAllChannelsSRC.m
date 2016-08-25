@@ -587,7 +587,7 @@ hMessage = uicontrol('Unit','Normalized','Position',[0 0.925 1 0.07],...
             %get the values for topoplot
             [erpTopoRef,~] = getERPDataRef(analysisType,ReRef_Data,timeVals,blRange,blCorrection,ERPRange);
             subplot(capERPRefHandle);cla(gca,'reset'); axis off;
-            topoplot(erpTopoRef,chanlocs,'electrodes','numbers','style','both','drawaxis','off');
+            topoplot(erpTopoRef,chanlocs,'electrodes','numbers','style','both','drawaxis','off','maplimits','maxmin');
             colorbar; colormap('jet');
             refType=getRefschemeName(refChanIndex);
             title(refType);
@@ -628,8 +628,8 @@ hMessage = uicontrol('Unit','Normalized','Position',[0 0.925 1 0.07],...
         %Plotting the topoplots
         subplot(capTFalphaHandle);cla(gca,'reset');axis off;
         subplot(capTFHandle);cla(gca,'reset');axis off;
-        subplot(capTFalphaHandle); topoplot(meanAlphaTF,chanlocs,'electrodes','numbers','style','both','drawaxis','off','nosedir','-Y'); colorbar; title('Change in alpha power');
-        subplot(capTFHandle); topoplot(meanTF,chanlocs,'electrodes','numbers','style','both','drawaxis','off','nosedir','-Y'); colorbar; title('Change in  chosen band power');
+        subplot(capTFalphaHandle); topoplot(meanAlphaTF,chanlocs,'electrodes','numbers','style','both','drawaxis','off','nosedir','-Y','maplimits','maxmin'); colorbar; title('Change in alpha power');
+        subplot(capTFHandle); topoplot(meanTF,chanlocs,'electrodes','numbers','style','both','drawaxis','off','nosedir','-Y','maplimits','maxmin'); colorbar; title('Change in  chosen band power');
         [refType]=getRefschemeName(refChanIndex);
         text(1.4,0.01,refType,'parent',capTFalphaHandle,'unit','normalized');
     end
@@ -915,7 +915,7 @@ else
             load('brainCap64.mat');
         end
         subplot(capERPHandle);cla(gca,'reset');axis off;colormap(jet);
-        topoplot(erpTopo,chanlocs,'electrodes','numbers','style','both','drawaxis','off');
+        topoplot(erpTopo,chanlocs,'electrodes','numbers','style','both','drawaxis','off','maplimits','maxmin');
         colorbar; title(['RMS ERP: ' num2str(ERPRange(1)) ' to ' num2str(ERPRange(2)) ' s' ' (SingleWire)']);
     end
 end
