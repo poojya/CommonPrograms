@@ -909,7 +909,7 @@ else
         end
     end
     if strcmp(gridType,'EEG') && analysisType==1 % plot the topolot : default-single reference
-        if strcmp(capType,'actiCp64')
+        if strcmp(capType,'actiCap64')
             load('actiCap64.mat');
         else
             load('brainCap64.mat');
